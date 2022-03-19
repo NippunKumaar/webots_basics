@@ -1,0 +1,163 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.47224755280887387 -0.8456842819270436 -0.2485967501146601 1.137589756970706
+  position -2.513932066237544 1.997353224504707 2.161942119524933
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 2 2
+}
+Solid {
+  translation -1 0.05 0
+  children [
+    DEF WALL Shape {
+      appearance PBRAppearance {
+        baseColor 0.0261692 0 0.998199
+        metalness 0
+      }
+      geometry Box {
+        size 0.01 0.1 2
+      }
+    }
+  ]
+  name "Wall 1"
+  boundingObject USE WALL
+}
+Solid {
+  translation 0 0.05 -1
+  rotation 0 1 0 1.57
+  children [
+    USE WALL
+  ]
+  name "Wall 2"
+  boundingObject USE WALL
+}
+Solid {
+  translation 1 0.05 0
+  children [
+    USE WALL
+  ]
+  name "Wall 3"
+  boundingObject USE WALL
+}
+Solid {
+  translation 0 0.05 1
+  rotation 0 1 0 1.57
+  children [
+    USE WALL
+  ]
+  name "Wall 4"
+  boundingObject USE WALL
+}
+Robot {
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "Wheel 1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 0.05
+        rotation 0 0 1 1.5708
+        children [
+          DEF WHEELS Shape {
+            appearance PBRAppearance {
+              baseColor 0.154971 1 0.0374304
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "Wheel 1"
+        boundingObject USE WHEELS
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    DEF CHASSIS Shape {
+      appearance PBRAppearance {
+        baseColor 0.986282 0.0463111 0.121553
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "Wheel 2"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 -0.05
+        rotation 0 0 1 1.5708
+        children [
+          USE WHEELS
+        ]
+        boundingObject USE WHEELS
+        physics USE WHEEL_PH
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "Wheel 3"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 0.05
+        rotation 0 0 1 1.5708
+        children [
+          USE WHEELS
+        ]
+        name "solid(1)"
+        boundingObject USE WHEELS
+        physics USE WHEEL_PH
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "Wheel 4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 -0.05
+        rotation 0 0 1 1.5708
+        children [
+          USE WHEELS
+        ]
+        name "solid(2)"
+        boundingObject USE WHEELS
+        physics USE WHEEL_PH
+      }
+    }
+  ]
+  name "4 Wheel Robot"
+  boundingObject USE CHASSIS
+  physics Physics {
+  }
+}
