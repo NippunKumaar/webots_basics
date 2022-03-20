@@ -88,8 +88,6 @@ Robot {
         boundingObject USE WHEELS
         physics DEF WHEEL_PH Physics {
         }
-        linearVelocity 1.1438737537607632e-16 -5.039412729281416e-14 1.3551279607790525e-13
-        angularVelocity 1.051940573132385e-12 4.307737548368865e-15 -1.528806036740732e-14
       }
     }
     DEF CHASSIS Shape {
@@ -119,8 +117,6 @@ Robot {
         ]
         boundingObject USE WHEELS
         physics USE WHEEL_PH
-        linearVelocity 1.2286729537425603e-16 5.120693037286033e-14 6.231483637014801e-13
-        angularVelocity 1.7914855503686377e-11 4.171392037951053e-15 -3.770535478743224e-15
       }
     }
     HingeJoint {
@@ -142,8 +138,6 @@ Robot {
         name "solid(1)"
         boundingObject USE WHEELS
         physics USE WHEEL_PH
-        linearVelocity -3.1103766158646875e-16 -5.1242265136868396e-14 1.3580306436822597e-13
-        angularVelocity 1.055306503444954e-12 4.430563243694508e-15 5.1001203124502655e-15
       }
     }
     HingeJoint {
@@ -165,8 +159,6 @@ Robot {
         name "solid(2)"
         boundingObject USE WHEELS
         physics USE WHEEL_PH
-        linearVelocity -2.220352809174881e-16 5.1100911906664696e-14 6.24650286259931e-13
-        angularVelocity 1.7959653039528947e-11 4.235233186384961e-15 5.786550286907082e-15
       }
     }
     DistanceSensor {
@@ -205,7 +197,7 @@ Robot {
   boundingObject USE CHASSIS
   physics Physics {
   }
-  controller "Simple_Obstacle_Avoidance"
+  controller "Obstancle_Avoidance"
   linearVelocity 1.2876875180892015e-16 -5.161382432561368e-14 3.793485748173878e-13
   angularVelocity 1.040266503935141e-12 4.05894265711302e-15 -5.09640403313716e-16
 }
