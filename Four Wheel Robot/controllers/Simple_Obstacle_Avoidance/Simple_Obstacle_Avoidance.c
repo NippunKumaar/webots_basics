@@ -36,7 +36,7 @@ int main() {
   while (wb_robot_step(TIME_STEP) != -1) {
   left_speed = 1;
   right_speed = 1;
-  if(obstacle_counter > 0) {//Turning right
+  if(obstacle_counter > 0) {//Turning left
       left_speed = -1;
       right_speed = 1;
       obstacle_counter--;
@@ -45,7 +45,7 @@ int main() {
         sensor_val = wb_distance_sensor_get_value(sensor);
         printf("Sensor Value:%f\n",sensor_val);      
         if(sensor_val >= OBS_THRES)
-          obstacle_counter = 150;
+          obstacle_counter = 70;
     }     
 
   wb_motor_set_velocity(wheels[0], left_speed);//This will kepp the sheel rotatin infinitely
