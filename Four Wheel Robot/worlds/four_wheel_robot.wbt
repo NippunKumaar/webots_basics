@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.9988606729594213 -0.044161890735192375 -0.018085447789449094 1.0367246658928087
-  position 0.04636331680189769 2.579319658815553 1.4615866461105824
+  orientation -0.999003516253968 -0.040592853787913045 -0.018552485913242597 1.1166394473339505
+  position 0.0742259028429686 2.0355955102147854 0.9385578508106048
 }
 TexturedBackground {
 }
@@ -56,12 +56,12 @@ Solid {
   boundingObject USE WALL
 }
 Robot {
-  translation 0 0.039721 0
-  rotation 5.888689878406685e-05 0.6590019810169327 0.7521412005388958 6.751917834410859e-08
+  translation 0 0.0395245 0
+  rotation 0.999999999885702 -1.5056838075509958e-05 -1.3738716540516065e-06 0.008004473635758744
   children [
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -4.09599996139235
+        position -7.61599926296928
         anchor 0.06 0 0.05
       }
       device [
@@ -70,8 +70,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.05999999934251677 3.9239402586654926e-06 0.05000000077737628
-        rotation 0.6636329058971091 -0.6636353436564075 0.3452238358813028 2.476767790671629
+        translation 0.05999999934251677 -3.6466261934935902e-06 0.05000144893932337
+        rotation -0.5270048283933623 0.5270067642611634 0.6667306662161725 1.9655022252592966
         children [
           DEF WHEELS Shape {
             appearance PBRAppearance {
@@ -101,7 +101,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -4.096000026056581
+        position -7.615999834885261
         anchor 0.06 0 -0.05
       }
       device [
@@ -110,8 +110,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.06000000065788258 3.923940250762092e-06 -0.049999999204918294
-        rotation 0.6636328997031784 -0.6636353374254278 0.3452238597660796 2.476767748009674
+        translation 0.06000000065788258 -3.646631992277998e-06 -0.04999855107528264
+        rotation -0.5270049660160477 0.5270069018892914 0.6667304486488338 1.9655025264275814
         children [
           USE WHEELS
         ]
@@ -121,7 +121,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -4.095999961092049
+        position -7.6159992638774705
         anchor -0.06 0 0.05
       }
       device [
@@ -130,8 +130,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.06000000065748304 3.9240597491871365e-06 0.049999999204918266
-        rotation 0.6636329059257356 -0.6636353436850339 0.3452238357712441 2.476767790868307
+        translation -0.06000000065748304 -3.6461562994685095e-06 0.05000145044468602
+        rotation -0.5270048286129817 0.5270067644807844 0.6667306658689826 1.9655022257399921
         children [
           USE WHEELS
         ]
@@ -142,7 +142,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -4.096000025756281
+        position -7.615999835194164
         anchor -0.06 0 -0.05
       }
       device [
@@ -151,8 +151,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.059999999342117236 3.924059741318431e-06 -0.05000000077737629
-        rotation 0.6636328997318046 -0.6636353374540539 0.3452238596560219 2.4767677482063495
+        translation -0.059999999342117236 -3.646162098397027e-06 -0.04999854956992242
+        rotation -0.5270049660913727 0.5270069019646171 0.6667304485297544 1.9655025265924504
         children [
           USE WHEELS
         ]
@@ -180,6 +180,7 @@ Robot {
           boundingObject USE SENSOR
         }
       ]
+      name "sensor 1"
       physics Physics {
       }
       lookupTable [
@@ -196,5 +197,25 @@ Robot {
   boundingObject USE CHASSIS
   physics Physics {
   }
-  controller "Basic_Movements"
+  controller "Sonar_Interfacing"
+}
+Solid {
+  translation -6.729777439854859e-19 0.09685977938060325 0.48
+  rotation 0.8551838093621402 0.07333816877047228 0.5131102856172854 4.985193087016527e-17
+  children [
+    DEF BOX Shape {
+      appearance PBRAppearance {
+        baseColor 0.99968 0.959503 0.041062
+        metalness 0
+      }
+      geometry Box {
+        size 0.2 0.2 0.2
+      }
+    }
+  ]
+  boundingObject USE BOX
+  physics Physics {
+  }
+  linearVelocity -3.001457785739191e-17 8.135720861485385e-06 5.7265897153697736e-18
+  angularVelocity 2.664535259100373e-16 -6.129842099378921e-17 1.332267629550188e-16
 }
